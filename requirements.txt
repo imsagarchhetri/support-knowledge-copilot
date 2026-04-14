@@ -1,0 +1,28 @@
+# --- core service ---
+fastapi>=0.110
+uvicorn[standard]>=0.27
+pydantic>=2.6
+pydantic-settings>=2.2
+
+# --- retrieval ---
+qdrant-client>=1.9          # dense vector store (local or server)
+rank-bm25>=0.2.2            # sparse BM25
+fastembed>=0.3             # local BGE embeddings (default, no API key)
+numpy>=1.26
+
+# --- document loaders (optional formats) ---
+PyMuPDF>=1.24              # PDF
+beautifulsoup4>=4.12       # HTML
+
+# --- LLM providers (install what you use) ---
+openai>=1.30              # LLM_PROVIDER=openai and/or EMBEDDING_PROVIDER=openai
+anthropic>=0.25           # LLM_PROVIDER=anthropic
+requests>=2.31            # LLM_PROVIDER=ollama
+
+# --- UI ---
+streamlit>=1.33
+
+# --- tests & evals ---
+pytest>=8.0
+httpx>=0.27               # FastAPI TestClient
+# ragas>=0.1              # optional: swap custom eval for RAGAS (needs an LLM key)
