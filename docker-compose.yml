@@ -1,0 +1,35 @@
+# Full local stack: Qdrant + FastAPI service + Streamlit UI.
+#   docker compose up --build
+#   docker compose exec api python -m app.cli ingest
+# Then open the UI at http://localhost:8501  (API at http://localhost:8000/docs)
+services:
+  qdrant:
+    image: qdrant/qdrant:latest
+    ports: ["6333:6333", "6334:6334"]
+    volumes: ["qdrant_data:/qdrant/storage"]
+
+  api:
+    build: .
+    ports: ["8000:8000"]
+    depends_on: [qdrant]
+    environment:
+      - qdrant_url=http://qdrant:6333
+      - llm_provider=${LLM_PROVIDER:-test}        # set to openai/anthropic/ollama
+      - openai_api_key=${OPENAI_API_KEY:-}
+      - anthropic_api_key=${ANTHROPIC_API_KEY:-}
+      - embedding_provider=${EMBEDDING_PROVIDER:-fastembed}
+    volumes:
+      - ./data/docs:/app/data/docs            # mount your corpus
+      - hf_cache:/root/.cache                  # cache the BGE model between runs
+
+  ui:
+    build: .
+    command: streamlit run ui/streamlit_app.py --server.address 0.0.0.0 --server.port 8501
+    ports: ["8501:8501"]
+    depends_on: [api]
+    environment:
+      - RAG_API_URL=http://api:8000
+
+volumes:
+  qdrant_data:
+  hf_cache:
