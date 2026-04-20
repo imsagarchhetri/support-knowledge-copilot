@@ -7,10 +7,6 @@ docs using **hybrid retrieval (Qdrant dense + BM25 sparse, fused with RRF)**,
 generates grounded answers with citations, **verifies every citation**, scores
 confidence, and **refuses honestly** when the answer isn't in the corpus.
 
-> 📖 New here? Read [`docs/TUTORIAL.md`](docs/TUTORIAL.md) for a step-by-step
-> build & run walkthrough, [`docs/CODE_WALKTHROUGH.md`](docs/CODE_WALKTHROUGH.md)
-> for every file/function with pseudocode, and
-> [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) for the design rationale.
 
 ## Real stack
 
@@ -102,11 +98,4 @@ data/docs/  the support corpus
 docker-compose.yml, Dockerfile, .env.example, requirements.txt, pyproject.toml
 ```
 
-## Interview talking points
 
-- Dense + sparse over the **same chunk IDs**; RRF fusion; why each catches
-  different failures.
-- Citation verification as a post-generation NLI-style check (+ optional LLM judge).
-- Refusal gate on **raw** retrieval signals (RRF discards magnitude).
-- Separating **retrieval** quality (recall) from **answer** quality in evals.
-- Swappable providers behind one interface (local BGE/Ollama ↔ hosted OpenAI).
