@@ -1,0 +1,14 @@
+{"question": "How do I reset my password?", "expected_source": "account_faq.md", "expected_contains": "reset", "difficulty": "easy"}
+{"question": "How long is the password reset link valid?", "expected_source": "account_faq.md", "expected_contains": "30 minutes", "difficulty": "easy"}
+{"question": "What does error code BIL-402 mean?", "expected_source": "billing_guide.md", "expected_contains": "declined", "difficulty": "easy"}
+{"question": "Can I get a refund on a monthly plan?", "expected_source": "billing_guide.md", "expected_contains": "non-refundable", "difficulty": "medium"}
+{"question": "What is the API rate limit?", "expected_source": "troubleshooting.md", "expected_contains": "600", "difficulty": "medium"}
+{"question": "How do webhooks verify authenticity?", "expected_source": "api_docs.md", "expected_contains": "signature", "difficulty": "medium"}
+{"question": "What happens when I downgrade my plan?", "expected_source": "billing_guide.md", "expected_contains": "end of the current billing period", "difficulty": "medium"}
+{"question": "App shows error APP-500, what should I do?", "expected_source": "troubleshooting.md", "expected_contains": "status page", "difficulty": "medium"}
+{"question": "How do I enable two-factor authentication?", "expected_source": "account_faq.md", "expected_contains": "2FA", "difficulty": "easy"}
+{"question": "How does API pagination work?", "expected_source": "api_docs.md", "expected_contains": "cursor", "difficulty": "medium"}
+{"question": "What is the refund window for annual plans and how do I fix a declined card?", "expected_source": "billing_guide.md", "expected_contains": "14 days", "difficulty": "hard"}
+{"question": "What is your company's stock price today?", "no_answer": true, "difficulty": "hard"}
+{"question": "Who is the CEO's personal assistant?", "no_answer": true, "difficulty": "hard"}
+{"question": "How do I integrate with Salesforce CRM?", "no_answer": true, "difficulty": "hard"}
